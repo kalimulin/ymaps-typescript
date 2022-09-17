@@ -4,6 +4,7 @@
   },
   "dependencies": {
     "@faker-js/faker": "^7.5.0",
-    "@types/faker": "^6.6.9"
+    "@types/faker": "^6.6.9",
+    "@types/yandex-maps": "^2.1.26"
   }
 }
