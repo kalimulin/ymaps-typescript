@@ -9,6 +9,6 @@ import { CustomMap } from "./CustomMap";
 const map = new CustomMap('map');
 
 ymaps.ready(() => {
-  map.addUserMarker(user);
-  map.addCompanyMarker(company);
+  map.addMarker(user);
+  map.addMarker(company);
 })

@@ -13,19 +13,19 @@ export class CustomMap {
     })
   }
 
-  addUserMarker(user: User) {
-    this.yMap.geoObjects.add(new ymaps.Placemark([user.location.lat, user.location.lng], {
-      balloonContent: user.name
+  addMarker(mappable: User | Company) {
+    this.yMap.geoObjects.add(new ymaps.Placemark([mappable.location.lat, mappable.location.lng], {
+      balloonContent: mappable.name
     }, {
-        preset: 'islands#redPersonIcon',
+        preset: ('catchPhrase' in mappable) ? 'islands#orangeFactoryIcon' : 'islands#redPersonIcon',
     }));
   }
 
-  addCompanyMarker(company: Company) {
-    this.yMap.geoObjects.add(new ymaps.Placemark([company.companyLocation.lat, company.companyLocation.lng], {
-      balloonContent: company.companyName
-    }, {
-        preset: 'islands#orangeFactoryIcon',
-    }));
-  }
+  // addCompanyMarker(company: Company) {
+  //   this.yMap.geoObjects.add(new ymaps.Placemark([company.location.lat, company.location.lng], {
+  //     balloonContent: company.name
+  //   }, {
+  //       preset: 'islands#orangeFactoryIcon',
+  //   }));
+  // }
 }
