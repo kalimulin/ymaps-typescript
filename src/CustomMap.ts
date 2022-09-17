@@ -1,6 +1,13 @@
 import { Company } from "./Company";
 import { User } from "./User";
 
+interface Mappable {
+  location: {
+    lat: number,
+    lng: number
+  }
+}
+
 export class CustomMap {
   private yMap: ymaps.Map;
 
@@ -13,11 +20,9 @@ export class CustomMap {
     })
   }
 
-  addMarker(mappable: User | Company) {
-    this.yMap.geoObjects.add(new ymaps.Placemark([mappable.location.lat, mappable.location.lng], {
-      balloonContent: mappable.name
-    }, {
-        preset: ('catchPhrase' in mappable) ? 'islands#orangeFactoryIcon' : 'islands#redPersonIcon',
+  addMarker(mappable: Mappable): void {
+    this.yMap.geoObjects.add(new ymaps.Placemark([mappable.location.lat, mappable.location.lng], {}, {
+        preset: 'islands#darkOrangeDotIcon',
     }));
   }
 
