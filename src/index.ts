@@ -1,9 +1,14 @@
-// import { User } from './User';
-// import { Company } from './Company';
+import { User } from './User';
+import { Company } from './Company';
 
-// const user = new User();
-// const company = new Company();
+const user = new User();
+const company = new Company();
 
 import { CustomMap } from "./CustomMap";
 
-new CustomMap('map', 2, [0, 0]);
+const map = new CustomMap('map');
+
+ymaps.ready(() => {
+  map.addUserMarker(user);
+  map.addCompanyMarker(company);
+})
