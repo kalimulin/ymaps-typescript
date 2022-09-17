@@ -1,11 +1,9 @@
-import { Company } from "./Company";
-import { User } from "./User";
-
 interface Mappable {
   location: {
     lat: number,
     lng: number
-  }
+  };
+  markerContent(): string;
 }
 
 export class CustomMap {
@@ -21,16 +19,11 @@ export class CustomMap {
   }
 
   addMarker(mappable: Mappable): void {
-    this.yMap.geoObjects.add(new ymaps.Placemark([mappable.location.lat, mappable.location.lng], {}, {
+    console.log(mappable.markerContent());
+    this.yMap.geoObjects.add(new ymaps.Placemark([mappable.location.lat, mappable.location.lng], {
+      balloonContentBody: mappable.markerContent()
+    }, {
         preset: 'islands#darkOrangeDotIcon',
     }));
   }
-
-  // addCompanyMarker(company: Company) {
-  //   this.yMap.geoObjects.add(new ymaps.Placemark([company.location.lat, company.location.lng], {
-  //     balloonContent: company.name
-  //   }, {
-  //       preset: 'islands#orangeFactoryIcon',
-  //   }));
-  // }
 }

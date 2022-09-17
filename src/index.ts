@@ -6,9 +6,9 @@ const company = new Company();
 
 import { CustomMap } from "./CustomMap";
 
-const map = new CustomMap('map');
+const customMap = new CustomMap('map');
 
 ymaps.ready(() => {
-  map.addMarker(user);
-  map.addMarker(company);
+  customMap.addMarker(user);
+  customMap.addMarker(company);
 })
